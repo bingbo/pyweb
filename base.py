@@ -6,7 +6,7 @@
     @file base.py
     @author bingbo(zhangbingbinge@126.com)
     @date 2015/11/03 17:51:23
-    @brief 
+    @brief based something 
    
 '''
 
@@ -22,7 +22,7 @@ class BaseController:
     #请求参数
     _request = None
 
-    def __init__(self,request):
+    def __init__(self, request):
         '构造函数，初始化request'
         self._request = request
 

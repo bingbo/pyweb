@@ -2,6 +2,12 @@
 # -*- coding: utf-8 -*-
 ##必须加上面一行，否则中文注释报错
 
+'''
+    @file webserver.py
+    @author bingbo(zhangbingbinge@126.com)
+    @date 2015/11/05 10:42:12
+    @brief http server relative 
+'''
 import socket
 import threading
 import time 
@@ -12,7 +18,10 @@ import urllib
 import urlparse
 
 import pywebapi as pyweb
+from utils import *
 
+#print sys.path[0]
+#print (sys.argv[1],sys.argv[2])
 class HttpServer:
     '''web服务器，接收请求，返回响应结果等'''
     
@@ -24,6 +33,8 @@ class HttpServer:
 
     def __init__(self, handle = None, server_address = ('0.0.0.0', 8090)):
         '''构造函数，补始化'''
+        if(len(sys.argv) == 2):
+            server_address = Common.validip(sys.argv[1])
         self.__server_address = server_address
         self.__app_handle = handle
 

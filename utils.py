@@ -10,7 +10,8 @@
 
 __all__ = [
     'Map',
-    'ThreadMap'        
+    'ThreadMap',
+    'Common'
 ]
 
 from threading import local
@@ -123,4 +124,57 @@ class ThreadMap(local):
     __str__ = __repr__
 
 
+class Common:
+    '''
+    一些通用的工具类
+    '''
 
+    @staticmethod
+    def validipaddr(self, address):
+        '''检验ip地址'''
+        try:
+            addr = address.split('.')
+            if(len(addr) !=4):
+                return False
+            for a in addr:
+                if(not (0 <= int(a) <= 255)):
+                    return False
+        except ValueError:
+            return False
+        return true;
+
+
+    @staticmethod
+    def validipport(self, port):
+        '''检验端口'''
+        try:
+            if(not (0 <= int(port) <= 65535)):
+                return False
+        except ValueError:
+            return False
+        return true
+
+    @staticmethod
+    def validip(self, ip, defaultaddr="0.0.0.0", defaultport=8080):
+        '''检验IP'''
+        addr = defaultaddr
+        port = defaultport
+
+        ip = ip.split(':', 1)
+        if(len(ip) == 1):
+            if not ip[0]:
+                pass
+            elif(self.validipaddr(ip[0])):
+                addr = ip[0]
+            elif(self.validipport(ip[0])):
+                port = int(ip[0])
+            else:
+                raise ValueError, ':'.join(ip) + ' is not a valid IP address/port'
+        elif(len(ip) == 2):
+            addr, port  = ip
+            if(not self.validipaddr(addr) and self.validipport(port)):
+                raise ValueError, ':'.join(ip) + ' is not a valid IP address/port'
+            port = int(port)
+        else:
+            raise ValueError, ':'.join(ip) + ' is not a valid IP address/port'
+        return (addr, port)

@@ -1,6 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+
+'''
+    @file application.py
+    @author bingbo(zhangbingbinge@126.com)
+    @date 2015/11/05 10:42:12
+    @brief application entry 
+'''
+
 import sys
 import urlparse
 
