@@ -130,7 +130,7 @@ class Common:
     '''
 
     @staticmethod
-    def validipaddr(self, address):
+    def validipaddr(address):
         '''检验ip地址'''
         try:
             addr = address.split('.')
@@ -141,21 +141,21 @@ class Common:
                     return False
         except ValueError:
             return False
-        return true;
+        return True;
 
 
     @staticmethod
-    def validipport(self, port):
+    def validipport(port):
         '''检验端口'''
         try:
             if(not (0 <= int(port) <= 65535)):
                 return False
         except ValueError:
             return False
-        return true
+        return True
 
     @staticmethod
-    def validip(self, ip, defaultaddr="0.0.0.0", defaultport=8080):
+    def validip(ip, defaultaddr="0.0.0.0", defaultport=8080):
         '''检验IP'''
         addr = defaultaddr
         port = defaultport
@@ -164,15 +164,15 @@ class Common:
         if(len(ip) == 1):
             if not ip[0]:
                 pass
-            elif(self.validipaddr(ip[0])):
+            elif(Common.validipaddr(ip[0])):
                 addr = ip[0]
-            elif(self.validipport(ip[0])):
+            elif(Common.validipport(ip[0])):
                 port = int(ip[0])
             else:
                 raise ValueError, ':'.join(ip) + ' is not a valid IP address/port'
         elif(len(ip) == 2):
             addr, port  = ip
-            if(not self.validipaddr(addr) and self.validipport(port)):
+            if(not Common.validipaddr(addr) and Common.validipport(port)):
                 raise ValueError, ':'.join(ip) + ' is not a valid IP address/port'
             port = int(port)
         else:
