@@ -15,7 +15,8 @@ import MySQLdb as mdb
 from config import db
 
 __all__ = [
-    'BaseController' 
+    'BaseController',
+    'SqlClient'
 ]
 
 class BaseController:
