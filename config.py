@@ -13,7 +13,7 @@ __all__ = [
 ]
 
 db = {
-    'database': 'wise_middle',
+    'database': 'demo',
     'host': '127.0.0.1',
     'port': 3306,
     'username': 'root',
