@@ -1,4 +1,5 @@
 # pyweb
-pyweb是简单的一个web框架，也是本人学习python后的简单尝试。
 
+pyweb is a web frame based on python by bingbo
 
+this is my test for study of python
