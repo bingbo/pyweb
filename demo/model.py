@@ -4,7 +4,7 @@
 
 '''
     @file User.py
-    @author zhangbingbing(com@baidu.com)
+    @author zhangbingbing
     @date 2015/11/03 17:51:23
     @brief 
    
